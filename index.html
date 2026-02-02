@@ -4,154 +4,121 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web PSAJ - Kelompok 2</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="img/logos.png" />
   </head>
   <body>
 
-    <header>
-        <nav>
-            <div class="logo">Kelompok<span>Empat</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#kelompok">Kelompok</a></li>
-                <li><a href="#laporan">Laporan</a></li>
-                <li><a href="#video">Video</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+      <div class="container nav-container">
+        <div class="logo">Kelompok<span>Dua</span></div>
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li> 
+          <li><a href="#kelompok">Kelompok</a></li>
+          <li><a href="#laporan">Laporan</a></li>
+          <li><a href="#video">Video</a></li>
+        </ul>
+      </div>
+    </nav>
 
-    <section id="home" class="hero-kelompok">
-        <div class="hero-overlay">
-            <p>Welcome to Our Website</p>
-            <h1>Kelompok 2</h1>
-            <p>Selamat datang di website kelompok kami</p>
-            <br />
-            <div class="hero-buttons">
-                <a href="#kelompok" class="btn-cek">Cek Anggota</a>
-            </div>
-        </div>
+    <section id="hero">
+      <div class="hero-content">
+        <p>Welcome to Our Website</p>
+        <h1>Kelompok 2</h1>
+        <p>Selamat datang di website kelompok kami</p>
+        <br />
+        <a href="#kelompok" class="btn-cta">Cek Anggota</a>
+      </div>
     </section>
 
-    <section id="kelompok" class="section-container bg-light">
-        <div class="container">
-            <h2 class="section-title">Anggota Kelompok</h2>
-            <div class="kelompok-grid">
-                <a href="porto-anggota1.html" class="kelompok-card">
-                    <div class="card-img">
-                        <img src="img/mylogo.png" alt="Anggota 1" />
-                    </div>
-                    <div class="card-info">
-                        <h3>Azaria Davita Hanna</h3>
-                        <p>Absen: 03</p>
-                    </div>
-                </a>
-
-                <a href="porto-anggota2.html" class="kelompok-card">
-                    <div class="card-img">
-                        <img src="img/mylogo.png" alt="Anggota 2" />
-                    </div>
-                    <div class="card-info">
-                        <h3>Indah Ayuningfitri</h3>
-                        <p>Absen: 11</p>
-                    </div>
-                </a>
-
-                <a href="porto-anggota3.html" class="kelompok-card">
-                    <div class="card-img">
-                        <img src="img/mylogo.png" alt="Anggota 3" />
-                    </div>
-                    <div class="card-info">
-                        <h3>Mario Adiananda Nugroho</h3>
-                        <p>Absen: 16</p>
-                    </div>
-                </a>
-
-                <a href="porto-anggota3.html" class="kelompok-card">
-                    <div class="card-img">
-                        <img src="img/mylogo.png" alt="Anggota 3" />
-                    </div>
-                    <div class="card-info">
-                        <h3>Mochammad Rasya Ramadhan</h3>
-                        <p>Absen: 18</p>
-                    </div>
-                </a>
-
-                <a href="porto-anggota3.html" class="kelompok-card">
-                    <div class="card-img">
-                        <img src="img/mylogo.png" alt="Anggota 3" />
-                    </div>
-                    <div class="card-info">
-                        <h3>Mochammad Aldi</h3>
-                        <p>Absen: 19</p>
-                    </div>
-                </a>
-
-                <a href="porto-anggota3.html" class="kelompok-card">
-                    <div class="card-img">
-                        <img src="img/mylogo.png" alt="Anggota 3" />
-                    </div>
-                    <div class="card-info">
-                        <h3>Satrya Wijaya Utama</h3>
-                        <p>Absen: 28</p>
-                    </div>
-                </a>
-            </div>
+    <section id="kelompok" class="container">
+      <h2 class="section-title">Anggota Kelompok</h2>
+      <div class="anggota-grid">
+        
+        <div class="card">
+          <img src="img/img 03.jpeg" alt="Anggota 1" />
+          <h3>Azaria Davita Hanna</h3>
+          <p>Absen: 03</p>
+          <a href="porto-anggota1.html" style="display:block; margin-top:10px; color:var(--warna-sekunder); text-decoration:none;">Lihat Profil</a>
         </div>
+
+        <div class="card">
+          <img src="img/img 11.jpeg" alt="Anggota 2" />
+          <h3>Indah Ayuningfitri</h3>
+          <p>Absen: 11</p>
+          <a href="porto-anggota2.html" style="display:block; margin-top:10px; color:var(--warna-sekunder); text-decoration:none;">Lihat Profil</a>
+        </div>
+
+        <div class="card">
+          <img src="img/img 16.jpeg" alt="Anggota 3" />
+          <h3>Mario Adiananda Nugroho</h3>
+          <p>Absen: 16</p>
+          <a href="porto-anggota3.html" style="display:block; margin-top:10px; color:var(--warna-sekunder); text-decoration:none;">Lihat Profil</a>
+        </div>
+
+        <div class="card">
+          <img src="img/img 18.jpeg" alt="Anggota 4" />
+          <h3>Mochammad Rasya R.</h3>
+          <p>Absen: 18</p>
+          <a href="porto-anggota3.html" style="display:block; margin-top:10px; color:var(--warna-sekunder); text-decoration:none;">Lihat Profil</a>
+        </div>
+
+        <div class="card">
+          <img src="img/img 19.jpeg" alt="Anggota 5" />
+          <h3>Mochammad Aldi</h3>
+          <p>Absen: 19</p>
+          <a href="porto-anggota3.html" style="display:block; margin-top:10px; color:var(--warna-sekunder); text-decoration:none;">Lihat Profil</a>
+        </div>
+
+        <div class="card">
+          <img src="img/img 29.jpeg" alt="Anggota 6" />
+          <h3>Satrya Wijaya Utama</h3>
+          <p>Absen: 28</p>
+          <a href="porto-anggota3.html" style="display:block; margin-top:10px; color:var(--warna-sekunder); text-decoration:none;">Lihat Profil</a>
+        </div>
+
+      </div>
     </section>
 
-    <section id="laporan" class="section-container bg-white">
-        <div class="container">
-            <h2 class="section-title">Makalah Sejarah dan PKN</h2>
-            <div class="content-wrapper">
-                <div class="pdf-container">
-                    <iframe
-                        src="https://drive.google.com/file/d/1EBCURSKO9i1r_AGcxn1OF-Yr0UbAhX10/preview"
-                        width="100%"
-                        height="100%"
-                        allow="autoplay"
-                    >
-                    </iframe>
-                </div>
-                <div class="content-desc">
-                    <p>Silakan baca dokumen di atas untuk informasi lebih mendalam.</p>
-                    <a
-                        href="https://drive.google.com/file/d/ID_DRIVE/view?usp=sharing"
-                        target="_blank"
-                        class="btn-cek"
-                        style="margin-top: 15px; padding: 8px 20px; font-size: 0.9rem"
-                    >Lihat / Unduh PDF</a>
-                </div>
-            </div>
+    <section id="laporan" class="container">
+      <h2 class="section-title">Makalah Sejarah dan PKN</h2>
+      <div class="makalah-content">
+        <div style="width: 100%; height: 500px; margin-bottom: 20px;">
+          <iframe
+            src="https://drive.google.com/file/d/1EBCURSKO9i1r_AGcxn1OF-Yr0UbAhX10/preview"
+            width="100%"
+            height="100%"
+            style="border: none;"
+            allow="autoplay"
+          ></iframe>
         </div>
+        <div class="content-desc" style="text-align: center;">
+          <p>Silakan baca dokumen di atas untuk informasi lebih mendalam.</p>
+          <a
+            href="https://drive.google.com/file/d/ID_DRIVE/view?usp=sharing"
+            target="_blank"
+            class="btn-cta"
+            style="display: inline-block; margin-top: 15px;"
+          >Lihat / Unduh PDF</a>
+        </div>
+      </div>
     </section>
 
-      <section id="video" class="section-container bg-light">
-            <div class="container">
-                <h2 class="section-title">Dokumentasi Video</h2>
-                <div class="video-wrapper">
-                    <div class="video-container">
-                        <iframe
-                            src="https://drive.google.com/file/d/ID_DRIVE/preview"
-                            width="100%"
-                            height="100%"
-                            allow="autoplay"
-                        >
-                        </iframe>
-                    </div>
-                    <div class="video-desc">
-                        <p align="center">Dokumentasi proyek Kelompok 4.</p>
-                    </div>
-                </div>
-            </div>
-      </section>
+    <section id="video" class="container">
+      <h2 class="section-title">Dokumentasi Video</h2>
+      <div class="video-wrapper">
+        <iframe
+          src="https://drive.google.com/file/d/ID_DRIVE/preview"
+          allow="autoplay"
+        ></iframe>
+      </div>
+      <p style="text-align: center; margin-top: 15px;">Dokumentasi proyek Kelompok 4.</p>
+    </section>
 
-      <footer>
-        <p>&copy; 2026 AdeveloperProject - Kelompok 4</p>
+    <footer>
+      <p>&copy; 2026 AdeveloperProject - Kelompok 4</p>
     </footer>
+
   </body>
 </html>
