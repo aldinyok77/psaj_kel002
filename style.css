@@ -1,188 +1,234 @@
-/* Import font 'Quicksand' yang bulat dan imut agar cocok dengan tema Labubu */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+/* --- TEMA LABUBU PINK & WHITE --- */
 
-/* --- Reset & Global Styles --- */
+/* Import font Quicksand yang bulat dan imut agar senada dengan Labubu */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+/* Reset dasar agar tampilan konsisten di semua browser */
 * {
-    margin: 0; /* Menghapus jarak luar bawaan browser */
-    padding: 0; /* Menghapus jarak dalam bawaan browser */
-    box-sizing: border-box; /* Padding tidak akan menambah lebar elemen */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Menjaga ukuran elemen tetap pas meskipun ada padding */
+}
+
+/* Mengatur variabel warna agar mudah diubah jika ingin eksperimen */
+:root {
+    --pink-utama: #ffb3c1;   /* Pink khas Labubu */
+    --pink-muda: #ffe5ec;    /* Pink sangat lembut untuk latar belakang */
+    --pink-tua: #fb6f92;     /* Pink kontras untuk tombol/judul */
+    --putih: #ffffff;
+    --cokelat-teks: #5d4037; /* Cokelat tua agar teks tetap terbaca jelas */
 }
 
 body {
-    font-family: 'Quicksand', sans-serif; /* Menggunakan font yang bulat dan ramah */
-    background-color: #fff5f7; /* Warna latar belakang pink sangat muda (putih susu pink) */
-    color: #5d4037; /* Warna teks cokelat tua agar kontras tapi tetap lembut */
-    line-height: 1.6; /* Memberi ruang antar baris agar nyaman dibaca */
+    font-family: 'Quicksand', sans-serif; /* Mengaktifkan font bulat yang imut */
+    background-color: var(--pink-muda);   /* Latar belakang website */
+    color: var(--cokelat-teks);
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
 }
 
-/* --- Navigasi --- */
-nav {
-    display: flex; /* Mengaktifkan mode flexbox */
-    justify-content: space-between; /* Logo di kiri, menu di kanan */
-    align-items: center; /* Menyejajarkan item secara vertikal */
-    padding: 15px 8%; /* Jarak dalam navigasi */
-    background-color: #ffffff; /* Warna latar putih bersih */
-    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3); /* Bayangan lembut warna pink */
-    position: sticky; /* Navigasi tetap di atas saat di-scroll */
+/* --- NAVIGASI (Navbar) --- */
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.9); /* Putih transparan */
+    padding: 15px 0;
+    position: sticky; /* Tetap di atas saat di-scroll */
     top: 0;
-    z-index: 1000; /* Memastikan navigasi selalu di atas elemen lain */
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(251, 111, 146, 0.1); /* Bayangan pink tipis */
+    backdrop-filter: blur(5px); /* Efek blur kaca di belakang navbar */
 }
 
-nav .logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #ff8fab; /* Warna pink cerah untuk identitas Labubu */
-}
-
-nav ul {
-    display: flex; /* Menu navigasi menyamping */
-    list-style: none; /* Menghapus titik-titik daftar */
-}
-
-nav ul li {
-    margin-left: 25px; /* Jarak antar link menu */
-}
-
-nav ul li a {
-    text-decoration: none; /* Menghapus garis bawah link */
-    color: #5d4037;
-    font-weight: 600;
-    transition: 0.3s; /* Efek halus saat kursor menyentuh menu */
-}
-
-nav ul li a:hover {
-    color: #ff8fab; /* Berubah jadi pink saat diarahkan kursor */
-}
-
-/* --- Hero Section (Beranda) --- */
-.hero {
-    height: 80vh; /* Tinggi section 80% dari layar */
+.nav-container {
     display: flex;
-    flex-direction: column; /* Menyusun isi hero ke bawah */
-    justify-content: center; /* Tengah secara vertikal */
-    align-items: center; /* Tengah secara horizontal */
-    text-align: center;
-    background: linear-gradient(135deg, #ffc2d1 0%, #ffe5ec 100%); /* Gradasi pink lembut */
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    color: #fb6f92; /* Pink tua yang menonjol */
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.05); /* Bayangan teks halus */
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pink-tua);
 }
 
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    color: #795548;
+.logo span {
+    color: var(--cokelat-teks); /* Membuat teks 'Dua' berbeda warna */
 }
 
-/* --- Pengaturan Section Umum --- */
-section {
-    padding: 70px 10%; /* Memberi ruang luas di setiap bagian website */
+.nav-links {
+    display: flex;
+    list-style: none;
 }
 
-h2 {
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--cokelat-teks);
+    font-weight: 600;
+    transition: 0.3s; /* Animasi transisi warna saat hover */
+}
+
+.nav-links a:hover {
+    color: var(--pink-tua); /* Berubah pink saat disentuh mouse */
+}
+
+/* --- HERO SECTION --- */
+
+#hero {
+    height: 90vh; /* Hampir satu layar penuh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-    color: #fb6f92;
+    background: linear-gradient(rgba(255, 179, 193, 0.4), rgba(255, 179, 193, 0.4)), 
+                url('https://www.transparenttextures.com/patterns/soft-wallpaper.png'); /* Pola tekstur halus */
+    padding: 0 20px;
 }
 
-/* Dekorasi garis melengkung di bawah judul */
-h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 5px;
-    background: #ffb3c1;
-    margin: 10px auto;
-    border-radius: 10px;
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--pink-tua);
+    margin: 10px 0;
+    text-shadow: 3px 3px 0px var(--putih); /* Efek teks timbul */
 }
 
-/* --- Grid System (Anggota & Makalah) --- */
-.container-grid {
-    display: flex; /* Mengaktifkan flexbox untuk kartu */
-    flex-wrap: wrap; /* Kartu akan turun ke bawah jika layar sempit */
-    gap: 25px; /* Jarak antar kartu */
-    justify-content: center; /* Kartu berada di tengah */
+.hero-content p {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Tombol CTA (Call to Action) */
+.btn-cta {
+    display: inline-block;
+    background-color: var(--pink-tua);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px; /* Sudut sangat bulat agar terlihat empuk */
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(251, 111, 146, 0.4);
+}
+
+.btn-cta:hover {
+    transform: scale(1.05); /* Membesar sedikit saat dihover */
+    background-color: #ff4d6d;
+}
+
+/* --- KONTEN UMUM --- */
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--pink-tua);
+}
+
+/* --- ANGGOTA GRID (Kartu Kelompok) --- */
+
+.anggota-grid {
+    display: flex;
+    flex-wrap: wrap; /* Supaya kartu turun ke bawah di layar kecil */
+    gap: 25px;      /* Jarak antar kartu */
+    justify-content: center;
 }
 
 .card {
-    background: #ffffff; /* Warna dasar kartu putih */
+    background: var(--putih);
     padding: 25px;
-    border-radius: 25px; /* Sudut sangat bulat agar terlihat 'imut' */
-    flex: 1 1 calc(30% - 25px); /* Lebar dasar 30% dari layar */
-    min-width: 280px; /* Lebar minimal kartu agar tidak kekecilan */
+    border-radius: 30px; /* Sudut melengkung besar khas Labubu */
     text-align: center;
-    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.2); /* Bayangan pink lembut */
-    transition: transform 0.3s; /* Animasi gerak */
+    flex: 1 1 calc(33.333% - 25px); /* Sejajar 3 kartu di laptop */
+    min-width: 280px;
+    box-shadow: 0 10px 20px rgba(251, 111, 146, 0.1);
+    transition: 0.4s;
     border: 2px solid transparent;
 }
 
 .card:hover {
-    transform: translateY(-10px); /* Kartu sedikit melompat naik saat di-hover */
-    border: 2px solid #ffc2d1; /* Muncul garis tepi pink saat di-hover */
+    transform: translateY(-10px); /* Efek melayang */
+    border-color: var(--pink-utama);
+    background-color: #fff9fa;
 }
 
 .card img {
     width: 120px;
     height: 120px;
-    border-radius: 50%; /* Membuat gambar berbentuk lingkaran */
+    border-radius: 50%; /* Membuat foto jadi lingkaran */
+    object-fit: cover;
     margin-bottom: 15px;
-    border: 4px solid #ffe5ec; /* Bingkai foto pink muda */
-    object-fit: cover; /* Menjaga proporsi gambar */
+    border: 5px solid var(--pink-muda); /* Bingkai foto manis */
 }
 
-/* --- Dokumentasi Video --- */
-.video-wrapper {
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
+.card h3 {
+    margin-bottom: 5px;
+    color: var(--pink-tua);
+}
+
+/* --- MAKALAH & VIDEO --- */
+
+.makalah-content, .video-wrapper {
+    background: var(--putih);
     padding: 20px;
     border-radius: 30px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    overflow: hidden; /* Memastikan iframe mengikuti lengkungan border */
 }
 
-iframe {
+.video-wrapper iframe {
     width: 100%;
-    max-width: 800px;
     height: 450px;
-    border-radius: 20px; /* Video dengan sudut melengkung */
     border: none;
+    border-radius: 20px;
 }
 
-/* --- Footer --- */
+/* --- FOOTER --- */
+
 footer {
-    background-color: #fb6f92; /* Footer warna pink solid */
-    color: white;
+    background-color: var(--putih);
     text-align: center;
     padding: 40px 0;
-    margin-top: 40px;
-    border-radius: 50% 50% 0 0 / 10% 10% 0 0; /* Membuat efek cembung di bagian atas footer */
+    margin-top: 50px;
+    border-top: 5px solid var(--pink-utama);
 }
 
-/* --- Responsive (Layar HP) --- */
+footer p {
+    font-weight: 600;
+    color: var(--pink-tua);
+}
+
+/* --- RESPONSIVE DESIGN (Layar HP) --- */
+
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column; /* Navigasi berubah jadi vertikal di HP */
+    .nav-container {
+        flex-direction: column; /* Menu jadi tumpuk di HP */
     }
     
-    nav ul {
+    .nav-links {
         margin-top: 15px;
     }
-
-    nav ul li {
+    
+    .nav-links li {
         margin: 0 10px;
     }
-
-    .hero h1 {
-        font-size: 2.2rem;
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
-
+    
     .card {
-        flex: 1 1 100%; /* Kartu menjadi lebar penuh di layar HP */
+        flex: 1 1 100%; /* Kartu jadi lebar penuh di HP */
     }
 }
