@@ -1,22 +1,22 @@
 /* --- Pengaturan Dasar & Variabel Warna --- */
 :root {
-  --pink-pastel: #ffcbdb;     /* Warna latar khas Hello Kitty */
-  --pink-dark: #ff85a1;       /* Warna aksen untuk tombol/hover */
-  --white: #ffffff;           /* Warna putih bersih */
-  --text-color: #5d4037;      /* Cokelat tua lembut agar tidak kaku seperti hitam */
+  --pink-pastel: #ffcbdb;     
+  --pink-dark: #ff85a1;       
+  --white: #ffffff;           
+  --text-color: #5d4037;      
   --font-utama: 'Poppins', sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Memastikan padding tidak merusak lebar elemen */
-  scroll-behavior: smooth; /* Efek scroll halus saat klik menu navigasi */
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-utama);
-  background-color: #fff5f7; /* Latar belakang pink yang sangat tipis */
+  background-color: #fff5f7;
   color: var(--text-color);
   line-height: 1.6;
 }
@@ -25,11 +25,11 @@ body {
 .navbar {
   background-color: var(--white);
   padding: 1rem 0;
-  position: fixed; /* Menempel di atas saat di-scroll */
+  position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(255, 133, 161, 0.2); /* Bayangan pink lembut */
+  box-shadow: 0 4px 15px rgba(255, 133, 161, 0.2);
   border-bottom: 3px solid var(--pink-pastel);
 }
 
@@ -51,10 +51,6 @@ body {
   color: var(--pink-dark);
 }
 
-.logo span {
-  color: #f7b2bd; /* Variasi warna pada logo */
-}
-
 .nav-links {
   display: flex;
   list-style: none;
@@ -67,20 +63,18 @@ body {
 .nav-links a {
   text-decoration: none;
   color: var(--text-color);
-  font-weight: 400;
-  transition: 0.3s; /* Animasi perubahan warna */
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
-  color: var(--pink-dark); /* Berubah warna saat kursor mendekat */
+  color: var(--pink-dark);
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section & Hello Kitty --- */
 #hero {
   height: 100vh;
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
-              url('https://img.freepik.com/free-vector/pink-background-with-white-dots_23-2147614264.jpg'); /* Contoh background pola */
-  background-size: cover;
+  background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), 
+              url('https://www.toptal.com/designers/subtlepatterns/uploads/polka-dots.png'); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,11 +82,22 @@ body {
   padding-top: 80px;
 }
 
+.kitty-hero {
+  width: 150px; /* Ukuran gambar Hello Kitty */
+  margin-bottom: 10px;
+  animation: bounce 2s infinite; /* Membuat Hello Kitty bergerak naik turun */
+}
+
+/* Animasi membal (bounce) agar lebih hidup */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
 .hero-content h1 {
   font-size: 4rem;
   color: var(--pink-dark);
-  text-shadow: 2px 2px var(--white); /* Efek teks timbul */
-  margin-bottom: 10px;
+  text-shadow: 3px 3px var(--white);
 }
 
 .btn-cta {
@@ -100,7 +105,7 @@ body {
   color: white;
   padding: 12px 30px;
   text-decoration: none;
-  border-radius: 50px; /* Bentuk kapsul yang imut */
+  border-radius: 50px;
   display: inline-block;
   font-weight: 600;
   transition: transform 0.3s;
@@ -108,7 +113,7 @@ body {
 }
 
 .btn-cta:hover {
-  transform: scale(1.1); /* Efek membesar sedikit saat disentuh */
+  transform: scale(1.05);
   background-color: #ff5c8a;
 }
 
@@ -118,61 +123,69 @@ body {
   margin: 50px 0;
   font-size: 2.5rem;
   color: var(--pink-dark);
-  position: relative;
 }
 
-/* Garis dekorasi di bawah judul */
 .section-title::after {
-  content: '✿'; /* Menambahkan ikon bunga kecil */
+  content: '🎀 🎀 🎀';
   display: block;
-  font-size: 1.5rem;
-  color: var(--pink-pastel);
+  font-size: 1.2rem;
+  margin-top: 10px;
 }
 
-/* --- Grid Anggota --- */
+/* --- Grid & Card Anggota --- */
 .anggota-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif: menyesuaikan lebar layar */
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
   padding-bottom: 50px;
 }
 
 .card {
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
+  background: var(--white);
+  border-radius: 25px;
+  padding: 25px;
   text-align: center;
-  border: 2px solid var(--pink-pastel);
-  transition: 0.3s;
+  border: 3px solid var(--pink-pastel);
+  transition: all 0.3s ease;
+  position: relative; /* Penting untuk posisi hiasan pita */
+  overflow: hidden;
+}
+
+/* Menambahkan pita kecil di pojok setiap kartu anggota */
+.card::before {
+  content: '🎀';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
 }
 
 .card:hover {
+  transform: translateY(-10px);
   border-color: var(--pink-dark);
-  box-shadow: 0 10px 20px rgba(255, 133, 161, 0.1);
 }
 
 .card img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover; /* Agar foto tidak lonjong */
-  border-radius: 50%; /* Foto menjadi lingkaran */
-  border: 4px solid var(--pink-pastel);
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--pink-pastel);
   margin-bottom: 15px;
 }
 
 /* --- Laporan & Video --- */
 .makalah-content, .video-wrapper {
   background: white;
-  padding: 20px;
+  padding: 15px;
   border-radius: 20px;
-  border: 2px dashed var(--pink-dark); /* Garis putus-putus biar estetik */
-  overflow: hidden;
+  border: 3px dashed var(--pink-pastel);
   margin-bottom: 50px;
 }
 
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /* Rasio video 16:9 */
+  padding-bottom: 56.25%;
   height: 0;
 }
 
@@ -188,9 +201,9 @@ body {
 /* --- Footer --- */
 footer {
   background-color: var(--pink-pastel);
-  padding: 30px 0;
+  padding: 40px 0;
   text-align: center;
   font-weight: 600;
-  color: var(--pink-dark);
-  margin-top: 50px;
+  color: var(--white);
+  border-radius: 50% 50% 0 0 / 20px 20px 0 0;
 }
