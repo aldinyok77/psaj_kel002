@@ -1,26 +1,35 @@
-/* --- 1. VARIABEL WARNA (Palet Masha & The Bear) --- */
+/* --- 1. PENGATURAN VARIABEL WARNA (Palet Masha & The Bear) --- */
 :root {
-  --masha-pink: #e91e63;      /* Warna fuchsia khas baju Masha */
-  --bear-brown: #795548;      /* Warna cokelat bulu beruang */
-  --forest-green: #8bc34a;    /* Warna hijau hutan yang ceria */
-  --cream-bg: #fff9f0;        /* Warna krem lembut untuk latar belakang */
+  --masha-pink: #ed4085;      /* Warna fuchsia lebih kuat dari gambar */
+  --bear-brown: #a0522d;      /* Warna cokelat gelap untuk beruang */
+  --forest-green: #90a440;    /* Hijau rumput cerah */
+  --cream-bg: #fdfae3;        /* Krem kekuningan untuk latar belakang */
   --white: #ffffff;
-  --font-utama: 'Poppins', sans-serif;
+  --text-dark: #4a2c00;       /* Cokelat sangat gelap untuk teks */
+  --font-gemoy: 'Poppins', sans-serif;
 }
 
-/* --- 2. PENGATURAN DASAR --- */
+/* --- 2. RESET & DASAR --- */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;     /* Menghitung padding dalam total lebar elemen */
+  box-sizing: border-box;     /* Agar ukuran elemen konsisten */
   scroll-behavior: smooth;    /* Efek geser halus saat klik menu */
 }
 
 body {
-  font-family: var(--font-utama);
-  background-color: var(--cream-bg);
-  color: #4e342e;             /* Warna teks cokelat gelap agar hangat */
-  overflow-x: hidden;
+  font-family: var(--font-gemoy);
+  background-color: var(--cream-bg); /* Latar belakang seluruh web */
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;         /* Mencegah scroll ke samping */
+}
+
+/* Wrapper container untuk konten */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* --- 3. NAVIGASI (NAVBAR) --- */
@@ -30,28 +39,27 @@ body {
   position: fixed;            /* Navbar tetap di atas saat scroll */
   width: 100%;
   top: 0;
+  left: 0;
   z-index: 1000;
-  box-shadow: 0 4px 10px rgba(233, 30, 99, 0.1); /* Bayangan pink tipis */
-  border-bottom: 4px solid var(--forest-green); /* Garis bawah warna hijau rumput */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Bayangan umum */
+  border-bottom: 5px solid var(--masha-pink); /* Garis bawah pink kuat */
+  border-radius: 0 0 20px 20px; /* Sudut melengkung di bawah navbar */
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--masha-pink);
+  font-size: 1.8rem; /* Lebih besar dari sebelumnya */
+  font-weight: 700;  /* Lebih tebal */
+  color: var(--bear-brown); /* Warna teks cokelat */
 }
 
 .logo span {
-  color: var(--bear-brown);
+  color: var(--masha-pink); /* Angka "2" atau bagian lain berwarna pink */
 }
 
 .nav-links {
@@ -60,83 +68,180 @@ body {
 }
 
 .nav-links li {
-  margin-left: 20px;
+  margin-left: 30px; /* Jarak antar link */
 }
 
 .nav-links a {
   text-decoration: none;
-  color: var(--bear-brown);
+  color: var(--text-dark);
   font-weight: 600;
-  transition: 0.3s;
+  transition: 0.3s ease;
+  position: relative;
 }
 
 .nav-links a:hover {
-  color: var(--masha-pink);   /* Berubah pink saat disentuh */
+  color: var(--masha-pink);
 }
 
-/* --- 4. HERO SECTION --- */
+/* Efek garis bawah saat hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: var(--masha-pink);
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* --- 4. HERO SECTION (BERANDA) --- */
 #hero {
   height: 100vh;
-  /* Background rumput/hutan mini menggunakan gradasi & pola */
+  /* Background rumput/hutan mini */
   background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
               url('https://www.transparenttextures.com/patterns/leaf.png'); 
-  background-color: #f1f8e9;
+  background-color: #f1f8e9; /* Warna latar dasar hijau muda */
+  background-size: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 100px; /* Menyesuaikan dengan tinggi navbar */
   position: relative;
+  overflow: hidden; /* Penting untuk gambar Masha dan Beruang */
 }
 
-/* Dekorasi Masha & Beruang di Hero */
+/* Gambar Masha (kiri) */
 #hero::before {
-  content: '🌻'; /* Bunga matahari sebagai hiasan */
-  font-size: 3rem;
+  content: '';
   position: absolute;
-  top: 100px;
-  left: 10%;
+  bottom: 0;
+  left: 5%;
+  width: 250px; /* Ukuran gambar Masha */
+  height: 300px; /* Ukuran gambar Masha */
+  background-image: url('https://clipart-library.com/images_k/masha-png-transparent/masha-png-transparent-19.png'); /* URL gambar Masha */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  z-index: 1;
+  animation: floatMasha 4s ease-in-out infinite; /* Animasi Masha sedikit bergerak */
+}
+
+/* Gambar Beruang (kanan) */
+#hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  width: 400px; /* Ukuran gambar Beruang */
+  height: 450px; /* Ukuran gambar Beruang */
+  background-image: url('https://www.pinclipart.com/picdir/big/562-5621422_bear-from-masha-and-the-bear-png-clipart.png'); /* URL gambar Beruang */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  z-index: 1;
+  animation: floatBear 5s ease-in-out infinite alternate; /* Animasi Beruang sedikit bergerak */
+}
+
+/* Animasi untuk Masha */
+@keyframes floatMasha {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Animasi untuk Beruang */
+@keyframes floatBear {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* Agar teks di atas gambar Masha & Beruang */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.6); /* Latar belakang transparan untuk teks */
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
 }
 
 .hero-content h1 {
-  font-size: 4.5rem;
+  font-size: 4rem; /* Sesuaikan ukuran judul */
   color: var(--masha-pink);
-  text-shadow: 4px 4px var(--white); /* Efek teks timbul */
+  text-shadow: 4px 4px var(--white);
   margin-bottom: 10px;
+  display: flex; /* Agar bisa menempatkan bunga di samping teks */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bunga matahari di samping judul utama */
+.hero-content h1::before {
+  content: '🌻';
+  font-size: 1.5em; /* Ukuran relatif terhadap font h1 */
+  margin-right: 15px;
+  animation: rotateFlower 3s linear infinite; /* Animasi bunga berputar */
+}
+
+@keyframes rotateFlower {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .btn-cta {
   background-color: var(--masha-pink);
   color: var(--white);
-  padding: 15px 35px;
+  padding: 15px 40px;
   text-decoration: none;
-  border-radius: 30px;        /* Bentuk lonjong gemoy */
+  border-radius: 15px; /* Sedikit kotak dengan sudut membulat */
   display: inline-block;
-  font-weight: 600;
-  box-shadow: 0 6px 0px #ad1457; /* Bayangan tebal seperti tombol game */
-  transition: 0.2s;
+  font-weight: 700;
+  box-shadow: 0 8px 0px var(--bear-brown); /* Bayangan tebal ala kartun */
+  transition: all 0.2s ease-out;
+  margin-top: 20px;
 }
 
 .btn-cta:hover {
-  transform: translateY(3px); /* Tombol seolah tertekan */
-  box-shadow: 0 3px 0px #ad1457;
+  transform: translateY(4px); /* Efek tombol tertekan */
+  box-shadow: 0 4px 0px var(--bear-brown);
 }
 
 /* --- 5. JUDUL SETIAP BAGIAN --- */
 .section-title {
   text-align: center;
-  margin: 60px 0 40px;
-  font-size: 2.5rem;
+  margin: 80px 0 40px; /* Jarak atas lebih besar */
+  font-size: 2.8rem;
   color: var(--bear-brown);
+  position: relative;
+  padding-bottom: 20px; /* Ruang untuk dekorasi bawah */
 }
 
 .section-title::after {
-  content: '🐾 🐾 🐾'; /* Jejak kaki beruang */
+  content: '🐾 🐾 🐾'; /* Jejak kaki beruang yang ceria */
   display: block;
-  font-size: 1rem;
-  margin-top: 10px;
+  font-size: 1.5rem;
+  margin-top: 15px;
   color: var(--forest-green);
+  animation: pulsePaw 2s infinite alternate; /* Animasi jejak kaki berdenyut */
 }
+
+@keyframes pulsePaw {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.1); opacity: 0.8; }
+}
+
 
 /* --- 6. KARTU ANGGOTA (CARD) --- */
 .anggota-grid {
@@ -148,57 +253,139 @@ body {
 
 .card {
   background: var(--white);
-  border-radius: 40px 10px 40px 10px; /* Bentuk asimetris yang lucu */
+  border-radius: 20px; /* Bentuk kotak membulat */
   padding: 30px;
   text-align: center;
-  border: 4px solid var(--forest-green);
-  transition: 0.3s;
+  border: 4px dotted var(--forest-green); /* Border putus-putus hijau */
+  transition: all 0.3s ease-in-out;
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Dekorasi Masha ngintip di card */
+/* Ikon Masha di pojok kartu */
 .card::before {
-  content: '👱‍♀️'; /* Simbol Masha */
+  content: '';
   position: absolute;
   top: -15px;
-  right: -5px;
-  font-size: 2rem;
-  background: white;
-  border-radius: 50%;
+  right: -15px;
+  width: 80px;
+  height: 80px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/9/90/Masha-and-the-bear-logo.png/250px-Masha-and-the-bear-logo.png'); /* Logo Masha & Bear */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(20deg); /* Sedikit miring */
+  opacity: 0.4; /* Sedikit transparan */
+  z-index: 0;
 }
 
+
 .card:hover {
-  transform: scale(1.05);     /* Membesar sedikit */
+  transform: translateY(-10px) rotate(2deg); /* Melayang & sedikit miring */
   border-color: var(--masha-pink);
+  box-shadow: 0 15px 30px rgba(237, 64, 133, 0.2);
 }
 
 .card img {
   width: 170px;
   height: 170px;
-  object-fit: cover;          /* Foto tidak gepeng */
-  border-radius: 30px;        /* Sudut foto bulat tumpul */
-  border: 5px solid var(--cream-bg);
-  margin-bottom: 15px;
+  object-fit: cover;
+  border-radius: 50%; /* Foto bulat sempurna */
+  border: 6px solid var(--masha-pink); /* Border pink di foto */
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.08); /* Foto membesar sedikit saat di-hover */
 }
 
 .card h3 {
-  color: var(--masha-pink);
+  color: var(--bear-brown);
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.card p {
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.card-profile-link { /* Class baru untuk link profil */
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--forest-green);
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid var(--forest-green);
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.card-profile-link:hover {
+  background-color: var(--forest-green);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 10px rgba(144, 164, 64, 0.3);
 }
 
 /* --- 7. LAPORAN & VIDEO --- */
 .makalah-content, .video-wrapper {
   background: var(--white);
-  padding: 20px;
+  padding: 30px;
   border-radius: 25px;
-  border: 5px solid var(--bear-brown);
-  box-shadow: 10px 10px 0px var(--forest-green); /* Bayangan kaku estetik */
+  border: 5px solid var(--bear-brown); /* Border cokelat tebal */
+  box-shadow: 10px 10px 0px var(--forest-green); /* Bayangan hijau menonjol */
   margin-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icon Masha di laporan */
+.makalah-content::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  background-image: url('https://w7.pngwing.com/pngs/398/18/png-transparent-masha-and-the-bear-masha-bear-masha-and-the-bear-heroes-fictional-character.png'); /* Gambar kepala Masha */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+}
+
+/* Icon Beruang di video */
+.video-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  height: 80px;
+  background-image: url('https://w7.pngwing.com/pngs/424/298/png-transparent-masha-and-the-bear-bear-masha-and-the-bear-heroes-fictional-character-clip-art.png'); /* Gambar kepala Beruang */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
 }
 
 .video-wrapper iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 15px;
+  border: 2px solid var(--masha-pink); /* Border pink di video */
+}
+
+.laporan-btn { /* Class untuk tombol di laporan */
+  background-color: var(--forest-green);
+  box-shadow: 0 8px 0px #688b2b; /* Bayangan hijau gelap */
+}
+
+.laporan-btn:hover {
+  background-color: #688b2b;
+  box-shadow: 0 4px 0px #688b2b;
 }
 
 /* --- 8. FOOTER --- */
@@ -207,5 +394,8 @@ footer {
   padding: 50px 0;
   text-align: center;
   color: var(--white);
-  border-top: 8px solid var(--masha-pink); /* Garis pink di atas footer */
+  font-weight: 600;
+  margin-top: 80px; /* Jarak dari section atas */
+  border-top: 10px solid var(--masha-pink); /* Garis pink tebal di atas footer */
+  border-radius: 20px 20px 0 0; /* Sudut melengkung di atas footer */
 }
